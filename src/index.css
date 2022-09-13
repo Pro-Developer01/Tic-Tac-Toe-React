@@ -21,7 +21,9 @@ code {
   color: white;
   justify-content: center;
   align-items: center;
+  padding-bottom: 104px;
 }
+
 
 .heading-text {
   color: white;
@@ -33,6 +35,7 @@ code {
 .row {
   display: flex;
   flex-direction: row;
+  margin: 28px 0px;
 }
 
 .column {
@@ -42,4 +45,20 @@ code {
 
 .jc-center {
   justify-content: center;
+}
+.fc-aqua {
+  color: #1CDBF5;
+}
+
+.fc-white {
+  color: white;
+}
+
+.fw-600 {
+  font-weight: bolder;
+}
+
+.clear-button {
+  width: max-content;
+  margin: 40px auto 10px auto;
 }
