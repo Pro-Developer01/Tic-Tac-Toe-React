@@ -4,6 +4,8 @@ import ReplayIcon from '@mui/icons-material/Replay';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import PauseCircleIcon from '@mui/icons-material/PauseCircle';
 import IconButton from '@mui/material/IconButton';
+import Lottie from 'react-lottie';
+import data from '../src/data.json';
 
 const initialState=["","","","","","","","",""];
 
@@ -26,6 +28,9 @@ export default function App() {
   const clearFunc=()=>{
     setGamestate(initialState); console.log("gameState",gameState);
     setPause(false);
+  }
+  const PlayPauseHandler=()=>{
+    setPause(pause?false:true);
   }
 
   const CheckWin=()=>{
@@ -50,12 +55,39 @@ export default function App() {
       }
     })
   }
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true, 
+    animationData: data,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
+
 useEffect(()=>{
   CheckWin();
 },[Xturn])
   return (
     <div className='app-header'>
       <p className="heading-text ">{Message}</p>
+      {pause&& <div className="animation">
+        <div className="lottie-1">
+        <Lottie options={defaultOptions}
+              height={623}
+              width={400}
+              isStopped={false}
+              isPaused={false}/>
+        </div>
+        <div className="lottie-2">
+        <Lottie options={defaultOptions}
+              height={623}
+              width={400}
+              isStopped={!pause}
+              isPaused={false}/>
+        </div>
+      </div>
+}
       <div >
 
       <div className="row jc-center">
@@ -75,15 +107,22 @@ useEffect(()=>{
       </div>
       </div>
 
+     {/* {pause && ( <Lottie options={defaultOptions}
+              height={400}
+              width={400}
+              isStopped={false}
+              isPaused={false}/>)
+  } */}
+
       <div className="button">
       <IconButton aria-label="Reset Game"  onClick={clearFunc} >
         <ReplayIcon  style={{color: "white"}} />
       </IconButton>
       <IconButton aria-label="Reset Game"   >
-        <PlayCircleIcon  style={{color: "white"}} />
+        <PlayCircleIcon  style={{color: "white"}} onClick={PlayPauseHandler}/>
       </IconButton>
       <IconButton aria-label="Reset Game"   >
-        <PauseCircleIcon  style={{color: "white"}} />
+        <PauseCircleIcon  style={{color: "white"}} onClick={PlayPauseHandler}/>
       </IconButton>
       </div>
     </div>

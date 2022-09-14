@@ -66,3 +66,15 @@ code {
 .clear-button{
   margin-top: 54px;
 }
+.lottie-1
+{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.lottie-2
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
