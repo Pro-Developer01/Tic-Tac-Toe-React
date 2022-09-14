@@ -1,14 +1,14 @@
 .b-bottom-right {
-    border-right: 15px solid #1CDBF5;
-    border-bottom: 15px solid #1CDBF5;
+    border-right: 15px solid  #b700ff;
+    border-bottom: 15px solid  #00ff14;
 }
 
 .b-bottom {
-    border-bottom: 15px solid #1CDBF5;
+    border-bottom: 15px solid  #00ff14;
 }
 
 .b-right {
-    border-right: 15px solid #1CDBF5;
+    border-right: 15px solid  #b700ff;
 }
 
 .square {
@@ -16,7 +16,7 @@
     min-height: 100px;
     font-size: 64px;
     text-align: center;
-    color: #1CDBF5;
+    color:  #00eeff;
     font-weight: bolder;
     margin: 0;
 }

@@ -17,7 +17,7 @@ code {
   min-height: 100vh;
   flex-direction: column;
   text-align: center;
-  background-color: #131A28;
+  background-color: #000000;
   color: white;
   justify-content: center;
   align-items: center;
@@ -63,8 +63,8 @@ code {
   margin: 40px auto 10px auto;
 }
 
-.clear-button{
-  margin-top: 54px;
+.button{
+  margin-top: 30px;
 }
 .lottie-1
 {
@@ -77,4 +77,13 @@ code {
   position: absolute;
   left: 0;
   top: 0;
+}
+
+@media screen and (max-width: 380px) {
+  .lottie-2
+{
+  position: absolute;
+  left: 0;
+  top: 166px;
+}
 }
