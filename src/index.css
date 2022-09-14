@@ -17,11 +17,13 @@ code {
   min-height: 100vh;
   flex-direction: column;
   text-align: center;
-  background-color: #131A28;
+  background-color: #000000;
   color: white;
   justify-content: center;
   align-items: center;
+  padding-bottom: 5px;
 }
+
 
 .heading-text {
   color: white;
@@ -33,6 +35,7 @@ code {
 .row {
   display: flex;
   flex-direction: row;
+  margin: 0px 0px;
 }
 
 .column {
@@ -42,4 +45,45 @@ code {
 
 .jc-center {
   justify-content: center;
+}
+.fc-aqua {
+  color: #1CDBF5;
+}
+
+.fc-white {
+  color: white;
+}
+
+.fw-600 {
+  font-weight: bolder;
+}
+
+.clear-button {
+  width: max-content;
+  margin: 40px auto 10px auto;
+}
+
+.button{
+  margin-top: 30px;
+}
+.lottie-1
+{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.lottie-2
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+@media screen and (max-width: 380px) {
+  .lottie-2
+{
+  position: absolute;
+  left: 0;
+  top: 166px;
+}
 }
