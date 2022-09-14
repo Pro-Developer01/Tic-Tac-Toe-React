@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import SquareMesh from './Components/SquareMesh'
+import ReplayIcon from '@mui/icons-material/Replay';
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import PauseCircleIcon from '@mui/icons-material/PauseCircle';
+import IconButton from '@mui/material/IconButton';
 
 const initialState=["","","","","","","","",""];
 
@@ -72,7 +76,15 @@ useEffect(()=>{
       </div>
 
       <div className="button">
-        <button className='clear-button' onClick={clearFunc}>Clear Board</button>
+      <IconButton aria-label="Reset Game"  onClick={clearFunc} >
+        <ReplayIcon  style={{color: "white"}} />
+      </IconButton>
+      <IconButton aria-label="Reset Game"   >
+        <PlayCircleIcon  style={{color: "white"}} />
+      </IconButton>
+      <IconButton aria-label="Reset Game"   >
+        <PauseCircleIcon  style={{color: "white"}} />
+      </IconButton>
       </div>
     </div>
 

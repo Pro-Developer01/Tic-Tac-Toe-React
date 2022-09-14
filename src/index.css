@@ -21,7 +21,7 @@ code {
   color: white;
   justify-content: center;
   align-items: center;
-  padding-bottom: 104px;
+  padding-bottom: 5px;
 }
 
 
@@ -61,4 +61,8 @@ code {
 .clear-button {
   width: max-content;
   margin: 40px auto 10px auto;
+}
+
+.clear-button{
+  margin-top: 54px;
 }
