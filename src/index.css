@@ -35,7 +35,7 @@ code {
 .row {
   display: flex;
   flex-direction: row;
-  margin: 28px 0px;
+  margin: 0px 0px;
 }
 
 .column {
