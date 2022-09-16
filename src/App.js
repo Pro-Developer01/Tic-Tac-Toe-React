@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import SquareMesh from './Components/SquareMesh'
 import ReplayIcon from '@mui/icons-material/Replay';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import PauseCircleIcon from '@mui/icons-material/PauseCircle';
 import IconButton from '@mui/material/IconButton';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-web';
 import data from '../src/data.json';
 
 const initialState=["","","","","","","","",""];
@@ -13,20 +13,46 @@ export default function App() {
   const [Xturn,setTurn]=useState(true);
   const [pause,setPause]=useState(false);
   const [Message,setMessage]=useState("Player X's Turn");
-  const [gameState,setGamestate]=useState([initialState]);
+  const [gameState,setGamestate]=useState(initialState);
 
   const clickHandler=(i)=>{
     if (!pause){
     var strings=Array.from(gameState);
-    strings[i]=Xturn?"X":"0";
-    setGamestate(strings);
-    console.log("gamestate",gameState);
-    setTurn(!Xturn);
-    setMessage(Xturn?"Player 0's Turn":"Player X's Turn");}
+    console.log("gamestate before",gameState);
+    if(strings[i]==="")
+    {
+      strings[i]=Xturn?"X":"0";
+      setGamestate(strings);
+      console.log("gamestate",gameState);
+      setTurn(!Xturn);
+      setMessage(Xturn?"Player 0's Turn":"Player X's Turn");
+    }
+    }
+    
   }
+  const container=useRef(null);
+  const containerX=useRef(null);
+
+  useEffect(()=>{
+    Lottie.loadAnimation({
+      container: container.current, 
+      renderer:'svg',
+      loop:true,
+      autoplay:true,
+      animationData: data,
+    })
+    Lottie.loadAnimation({
+      container: containerX.current, 
+      renderer:'svg',
+      loop:true,
+      autoplay:true,
+      animationData: data,
+    })
+  },[pause])
 
   const clearFunc=()=>{
-    setGamestate(initialState); console.log("gameState",gameState);
+    setGamestate(initialState); 
+    console.log("gameState",gameState);
     setPause(false);
   }
   const PlayPauseHandler=()=>{
@@ -44,26 +70,24 @@ export default function App() {
       [0,4,8],
       [2,4,6],
     ]
-
     win.forEach((e)=>{
       const [a,b,c]=e;
       if(gameState[a] && gameState[a]===gameState[b] && gameState[b]===gameState[c])
       {
         setMessage("Player "+gameState[a]+" Wins !");
         setPause(true);
-
       }
     })
   }
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true, 
-    animationData: data,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  };
+  // const defaultOptions = {
+  //   loop: true,
+  //   autoplay: true, 
+  //   animationData: data,
+  //   rendererSettings: {
+  //     preserveAspectRatio: 'xMidYMid slice'
+  //   }
+  // };
 
 useEffect(()=>{
   CheckWin();
@@ -72,19 +96,23 @@ useEffect(()=>{
     <div className='app-header'>
       <p className="heading-text ">{Message}</p>
       {pause&& <div className="animation">
-        <div className="lottie-1">
-        <Lottie options={defaultOptions}
+        <div className="lottie-1" ref={container}>
+        {/* <Lottie options={defaultOptions}
               height={623}
               width={400}
-              isStopped={false}
-              isPaused={false}/>
+              loop={true}
+              // isstopped={false}
+              // ispaused={false}
+              /> */}
         </div>
-        <div className="lottie-2">
-        <Lottie options={defaultOptions}
+        <div className="lottie-2" ref={containerX}>
+        {/* <Lottie options={defaultOptions}
               height={623}
               width={400}
-              isStopped={!pause}
-              isPaused={false}/>
+              loop={true}
+              // isstopped={!pause}
+              // ispaused={false}
+              /> */}
         </div>
       </div>
 }
@@ -118,11 +146,11 @@ useEffect(()=>{
       <IconButton aria-label="Reset Game"  onClick={clearFunc} >
         <ReplayIcon  style={{color: "white"}} />
       </IconButton>
-      <IconButton aria-label="Reset Game"   >
-        <PlayCircleIcon  style={{color: "white"}} onClick={PlayPauseHandler}/>
+      <IconButton aria-label="Reset Game" onClick={PlayPauseHandler}  >
+        <PlayCircleIcon  style={{color: "white"}} />
       </IconButton>
-      <IconButton aria-label="Reset Game"   >
-        <PauseCircleIcon  style={{color: "white"}} onClick={PlayPauseHandler}/>
+      <IconButton aria-label="Reset Game"  onClick={PlayPauseHandler} >
+        <PauseCircleIcon  style={{color: "white"}} />
       </IconButton>
       </div>
     </div>
