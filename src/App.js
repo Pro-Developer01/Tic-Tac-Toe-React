@@ -6,14 +6,17 @@ import PauseCircleIcon from '@mui/icons-material/PauseCircle';
 import IconButton from '@mui/material/IconButton';
 import Lottie from 'lottie-web';
 import data from '../src/data.json';
+import song from "../src/Assests/firecracker.mp3";
 
 const initialState=["","","","","","","","",""];
 
 export default function App() {
   const [Xturn,setTurn]=useState(true);
   const [pause,setPause]=useState(false);
+  const [AnimShow,setAnimShow]=useState(false);
   const [Message,setMessage]=useState("Player X's Turn");
   const [gameState,setGamestate]=useState(initialState);
+  const music=new Audio(song);
 
   const clickHandler=(i)=>{
     if (!pause){
@@ -47,6 +50,8 @@ export default function App() {
       {
         setMessage("Player "+gameState[a]+" Wins !");
         setPause(true);
+        setAnimShow(true);
+        music.play();
       }
     })
   }
@@ -57,14 +62,14 @@ export default function App() {
     Lottie.loadAnimation({
       container: container.current, 
       renderer:'svg',
-      loop:true,
+      loop:false,
       autoplay:true,
       animationData: data,
     })
     Lottie.loadAnimation({
       container: containerX.current, 
       renderer:'svg',
-      loop:true,
+      loop:false,
       autoplay:true,
       animationData: data,
     })
@@ -80,10 +85,20 @@ export default function App() {
     setGamestate(initialState); 
     console.log("gameState",gameState);
     setPause(false);
+    setAnimShow(false);
   }
   const PlayPauseHandler=()=>{
+    // setPlayPauseButton(PlayPauseButton?false:true);
     setPause(pause?false:true);
-  }
+  };
+  // useEffect(()=>{
+  //   if(PlayPauseButton)
+  //   {
+  //     setPause(PlayPauseButton);
+  //   }
+  //   else{
+  //   }
+  // },[PlayPauseButton])
 
  
 
@@ -100,7 +115,7 @@ export default function App() {
   return (
     <div className='app-header'>
       <p className="heading-text ">{Message}</p>
-      {pause&& <div className="animation">
+      {AnimShow && <div className="animation">
         <div className="lottie-1" ref={container}>
         {/* <Lottie options={defaultOptions}
               height={623}
@@ -152,10 +167,7 @@ export default function App() {
         <ReplayIcon  style={{color: "white"}} />
       </IconButton>
       <IconButton aria-label="Reset Game" onClick={PlayPauseHandler}  >
-        <PlayCircleIcon  style={{color: "white"}} />
-      </IconButton>
-      <IconButton aria-label="Reset Game"  onClick={PlayPauseHandler} >
-        <PauseCircleIcon  style={{color: "white"}} />
+        {pause?<PlayCircleIcon  style={{color: "white"}} />:<PauseCircleIcon  style={{color: "white"}} />}
       </IconButton>
       </div>
     </div>
