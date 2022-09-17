@@ -30,35 +30,6 @@ export default function App() {
     }
     
   }
-  const container=useRef(null);
-  const containerX=useRef(null);
-
-  useEffect(()=>{
-    Lottie.loadAnimation({
-      container: container.current, 
-      renderer:'svg',
-      loop:true,
-      autoplay:true,
-      animationData: data,
-    })
-    Lottie.loadAnimation({
-      container: containerX.current, 
-      renderer:'svg',
-      loop:true,
-      autoplay:true,
-      animationData: data,
-    })
-  },[pause])
-
-  const clearFunc=()=>{
-    setGamestate(initialState); 
-    console.log("gameState",gameState);
-    setPause(false);
-  }
-  const PlayPauseHandler=()=>{
-    setPause(pause?false:true);
-  }
-
   const CheckWin=()=>{
     let win=[
       [0,1,2],
@@ -79,6 +50,42 @@ export default function App() {
       }
     })
   }
+  const container=useRef(null);
+  const containerX=useRef(null);
+
+  useEffect(()=>{
+    Lottie.loadAnimation({
+      container: container.current, 
+      renderer:'svg',
+      loop:true,
+      autoplay:true,
+      animationData: data,
+    })
+    Lottie.loadAnimation({
+      container: containerX.current, 
+      renderer:'svg',
+      loop:true,
+      autoplay:true,
+      animationData: data,
+    })
+  },[pause])
+  useEffect(()=>{
+    CheckWin();
+    //It waas showing this error : Line 74:5:  React Hook useEffect has a missing dependency: 'CheckWin'. Either include it or remove the dependency array  react-hooks/exhaustive-deps if I was not using the folloeing Disable Rule. 
+    //  disable the rule for a single line
+      // eslint-disable-next-line react-hooks/exhaustive-deps 
+  },[Xturn]);
+
+  const clearFunc=()=>{
+    setGamestate(initialState); 
+    console.log("gameState",gameState);
+    setPause(false);
+  }
+  const PlayPauseHandler=()=>{
+    setPause(pause?false:true);
+  }
+
+ 
 
   // const defaultOptions = {
   //   loop: true,
@@ -89,9 +96,7 @@ export default function App() {
   //   }
   // };
 
-useEffect(()=>{
-  CheckWin();
-},[Xturn])
+
   return (
     <div className='app-header'>
       <p className="heading-text ">{Message}</p>
