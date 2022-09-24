@@ -6,5 +6,26 @@
     width: 335px;
     height: 210px;
     margin-top: 22px;
+    box-shadow: 0px 0px 32px #ffffffa8;
+
+}
+.X-score-red
+{
+    box-shadow: 0px 16px 17px red;
+
+}
+.X-score-green
+{
+    box-shadow: 0px 16px 17px green;
+
+}
+.Y-score-green
+{
+    box-shadow: 0px 16px 17px green;
+
+}
+.Y-score-red
+{
+    box-shadow: 0px 16px 17px red;
 
 }

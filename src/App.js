@@ -15,6 +15,28 @@ import "./App.css";
 import { Games } from '@mui/icons-material';
 
 const initialState = ["", "", "", "", "", "", "", "", ""];
+const getlocalXscore=()=>{
+  const data=localStorage.getItem('Xscore');
+  console.log('data',data);
+  if(data)
+  {
+    return JSON.parse(data);
+  }
+  else if (data===null){
+    return 0;
+  }
+}
+const getlocalYscore=()=>{
+  const data=localStorage.getItem('Yscore');
+  console.log('data',data);
+  if(data)
+  {
+    return JSON.parse(data);
+  }
+  else if (data===null){
+    return 0;
+  }
+}
 
 
 export default function App() {
@@ -22,8 +44,8 @@ export default function App() {
   const [pause, setPause] = useState(false);
   const [AnimShow, setAnimShow] = useState(false);
   const [Message, setMessage] = useState("Player X's Turn");
-  const [XScore, setXScore] = useState(0);
-  const [YScore, setYScore] = useState(0);
+  const [XScore, setXScore] = useState(getlocalXscore());
+  const [YScore, setYScore] = useState(getlocalYscore());
   const [gameState, setGamestate] = useState(initialState);
   const firecracker = new Audio(firecrackerx);
   const turn = new Audio(turnx);
@@ -107,6 +129,8 @@ export default function App() {
 
   useEffect(() => {
     console.log("XScore", XScore, YScore);
+    localStorage.setItem('Xscore', JSON.stringify(XScore));
+    localStorage.setItem('Yscore', JSON.stringify(YScore));
   }, [XScore, YScore]);
 
   const clearFunc = () => {
@@ -115,6 +139,10 @@ export default function App() {
     console.log("gameState", gameState);
     setPause(false);
     setAnimShow(false);
+  }
+  const clearScore=()=>{
+    setXScore(0);
+    setYScore(0);
   }
   const PlayPauseHandler = () => {
     setPause(pause ? false : true);
@@ -129,7 +157,7 @@ export default function App() {
           justifyContent: 'center',
           alignItems: 'center'
         }}>
-          <div className="X-score" style={{
+          <div className={XScore!==0?(XScore>=YScore?"X-score-green":"X-score-red"):null } style={{
             border: 'solid',
             width: '50%',
             borderRadius: '7px'
@@ -139,10 +167,10 @@ export default function App() {
               marginTop: '-26px',
               width: '48px'
             }} />
-            <h2>{XScore}</h2>
+            <h1>{XScore}</h1>
           </div>
           <h1 style={{ margin: ' 0px 7px' }}>:</h1>
-          <div className="0-score" style={{
+          <div className={YScore!==0?(YScore>=XScore?"Y-score-green":"Y-score-red"):null } style={{
             border: 'solid',
             width: '50%',
             borderRadius: '7px'
@@ -152,10 +180,10 @@ export default function App() {
               marginTop: '-26px',
               width: '48px'
             }} />
-            <h2>{YScore}</h2>
+            <h1>{YScore}</h1>
           </div>
         </div>
-        <IconButton aria-label="Reset Score" onClick={clearFunc} >
+        <IconButton aria-label="Reset Score" onClick={clearScore} >
           <ReplayIcon style={{ color: "white" }} />
         </IconButton>
       </div>
