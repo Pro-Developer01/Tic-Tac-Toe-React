@@ -10,14 +10,13 @@ import firecrackerx from "../src/Assests/firecracker.mp3";
 import turnx from "../src/Assests/Turn Change.wav";
 import winx from "../src/Assests/win.mp3";
 import resetx from "../src/Assests/reset.mp3";
-import Drawx from "../src/Assests/Draw.mp3";
+// import Drawx from "../src/Assests/Draw.mp3";
 import "./App.css";
-import { Games } from '@mui/icons-material';
+// import { Games } from '@mui/icons-material';
 
 const initialState = ["", "", "", "", "", "", "", "", ""];
 const getlocalXscore=()=>{
   const data=localStorage.getItem('Xscore');
-  console.log('data',data);
   if(data)
   {
     return JSON.parse(data);
@@ -28,7 +27,6 @@ const getlocalXscore=()=>{
 }
 const getlocalYscore=()=>{
   const data=localStorage.getItem('Yscore');
-  console.log('data',data);
   if(data)
   {
     return JSON.parse(data);
@@ -51,17 +49,17 @@ export default function App() {
   const turn = new Audio(turnx);
   const winxx = new Audio(winx);
   const reset = new Audio(resetx);
-  const Draw = new Audio(Drawx);
+  // const Draw = new Audio(Drawx);
 
   const clickHandler = (i) => {
     var strings = Array.from(gameState);
     if (!pause) {
-      console.log("gamestate before", gameState);
+      // console.log("gamestate before", gameState);
       if (strings[i] === "") {
         turn.play();
         strings[i] = Xturn ? "X" : "0";
         setGamestate(strings);
-        console.log("gamestate", gameState);
+        // console.log("gamestate", gameState);
         setTurn(!Xturn);
         setMessage(Xturn ? "Player 0's Turn" : "Player X's Turn");
       }
@@ -128,7 +126,7 @@ export default function App() {
   }, [Xturn]);
 
   useEffect(() => {
-    console.log("XScore", XScore, YScore);
+    // console.log("XScore", XScore, YScore);
     localStorage.setItem('Xscore', JSON.stringify(XScore));
     localStorage.setItem('Yscore', JSON.stringify(YScore));
   }, [XScore, YScore]);
