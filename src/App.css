@@ -64,6 +64,7 @@
     top: 602px;
     right: 495px;
     display: block !important;
+    transition: transform 3s;
 }
 .line-HT
 {
@@ -112,4 +113,10 @@
     width: 370px;
     height: 2px;
     background: #e5e5e5;
+    animation: line .5s ;
 }
+
+@keyframes line {
+    from {width: 30px;}
+    to {width: 370px;}
+  }
