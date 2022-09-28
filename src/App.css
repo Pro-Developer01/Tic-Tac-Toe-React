@@ -4,7 +4,7 @@
     padding: 13px;
     border-radius: 14px;
     width: 335px;
-    height: 221px;
+    height: 241px;
     margin-top: 22px;
     box-shadow: 0px 0px 32px #ffffffa8;
 
@@ -28,4 +28,88 @@
 {
     box-shadow: 0px 16px 17px red;
 
+}
+
+.line-VM
+{
+    width: 370px;
+    position: absolute;
+    transform: rotate(90deg);
+    top: 606px;
+    display: block !important;
+}
+.line-VR
+{
+    width: 370px;
+    position: absolute;
+    transform: rotate(90deg);
+    top: 606px;
+    right: 374px;
+    display: block !important;
+}
+.line-VL
+{
+    width: 370px;
+    position: absolute;
+    transform: rotate(90deg);
+    top: 606px;
+    right: 604px;
+    display: block !important;
+}
+.line-HM
+{
+    width: 370px;
+    position: absolute;
+    transform: rotate(0deg);
+    top: 602px;
+    right: 495px;
+    display: block !important;
+}
+.line-HT
+{
+    width: 370px;
+    position: absolute;
+    transform: rotate(0deg);
+    top: 488px;
+    right: 495px;
+    display: block !important;
+}
+.line-HB
+{
+    width: 370px;
+    position: absolute;
+    transform: rotate(0deg);
+    top: 718px;
+    right: 495px;
+    display: block !important;
+}
+.line-C1
+{
+    width: 370px;
+    position: absolute;
+    transform: rotate(45deg);
+    top: 604px;
+    right: 490px;
+    display: block !important;
+}
+.line-C2
+{
+    width: 370px;
+    position: absolute;
+    transform: rotate(-48deg);
+    top: 602px;
+    right: 495px;
+    display: block !important;
+}
+
+.line
+{
+    display: none;
+}
+
+.actual-line
+{
+    width: 370px;
+    height: 2px;
+    background: #e5e5e5;
 }

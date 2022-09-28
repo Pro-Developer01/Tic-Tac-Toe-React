@@ -45,6 +45,7 @@ export default function App() {
   const [XScore, setXScore] = useState(getlocalXscore());
   const [YScore, setYScore] = useState(getlocalYscore());
   const [gameState, setGamestate] = useState(initialState);
+  const [classess, setclassess] = useState('');
   const firecracker = new Audio(firecrackerx);
   const turn = new Audio(turnx);
   const winxx = new Audio(winx);
@@ -94,6 +95,38 @@ export default function App() {
         // console.log("gameState[a]",gameState[a]);
         //   return (gameState[a]);
         (gameState[a] === 'X' ? setXScore(XScore + 1) : setYScore(YScore + 1));
+        if(a===1 && b===4)
+        {
+          setclassess('line-VM');
+        }
+       if(a===0 && b===3)
+        {
+          setclassess('line-VL');
+        }
+       if(a===2 && b===5)
+        {
+          setclassess('line-VR');
+        }
+       if(a===3 && b===4)
+        {
+          setclassess('line-HM');
+        }
+       if(a===0 && b===1)
+        {
+          setclassess('line-HT');
+        }
+       if(a===6 && b===7)
+        {
+          setclassess('line-HB');
+        }
+       if(a===0 && b===4)
+        {
+          setclassess('line-C1');
+        }
+       if(a===2 && b===4)
+        {
+          setclassess('line-C2');
+        }
       }
     })
   }
@@ -137,6 +170,7 @@ export default function App() {
     console.log("gameState", gameState);
     setPause(false);
     setAnimShow(false);
+    setclassess('');
   }
   const clearScore=()=>{
     setXScore(0);
@@ -150,6 +184,7 @@ export default function App() {
     <div className='app-header'>
       <div className="score-board">
         <h1 style={{ margin: ' 0' }}>Score Board</h1>
+        <div ><hr /></div> 
         <div style={{
           display: 'flex',
           justifyContent: 'center',
@@ -195,6 +230,7 @@ export default function App() {
         </div>
       </div>
       }
+       <div className={classess.length>1?`${classess}`:'line'}><hr className='actual-line' /></div>
       <div >
 
         <div className="row jc-center">
