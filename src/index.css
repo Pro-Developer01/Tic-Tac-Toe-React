@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
 }
 
 code {
@@ -24,13 +25,23 @@ code {
   padding-bottom: 5px;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.body {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
 
 .heading-text {
   color: white;
-  font-size: 42px;
+  font-size: 40px;
   font-weight: bolder;
   text-align: center;
-  margin: 50px;
+  margin: 27px;
 }
 .row {
   display: flex;
@@ -65,18 +76,20 @@ code {
 
 .button{
   margin-top: 30px;
+  margin-bottom: 60px;
+
 }
 .lottie-1
 {
   position: absolute;
   right: 0;
-  top: 0;
+  top: 115px;
 }
 .lottie-2
 {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 115px;
 }
 
 @media screen and (max-width: 380px) {
@@ -86,4 +99,10 @@ code {
   left: 0;
   top: 166px;
 }
+}
+
+@media screen and (max-width:780px ){
+  .heading-text {
+    font-size: 34px;
+  }
 }

@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import SquareMesh from './Components/SquareMesh'
+import Footer from './Components/Footer'
+import NavBar2 from './Components/NavBar2'
 import ReplayIcon from '@mui/icons-material/Replay';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import PauseCircleIcon from '@mui/icons-material/PauseCircle';
@@ -10,8 +12,10 @@ import firecrackerx from "../src/Assests/firecracker.mp3";
 import turnx from "../src/Assests/Turn Change.wav";
 import winx from "../src/Assests/win.mp3";
 import resetx from "../src/Assests/reset.mp3";
+import cutx from "../src/Assests/cut.wav";
 // import Drawx from "../src/Assests/Draw.mp3";
 import "./App.css";
+// import Navbar from './Components/Navbar';
 // import { Games } from '@mui/icons-material';
 
 const initialState = ["", "", "", "", "", "", "", "", ""];
@@ -45,10 +49,12 @@ export default function App() {
   const [XScore, setXScore] = useState(getlocalXscore());
   const [YScore, setYScore] = useState(getlocalYscore());
   const [gameState, setGamestate] = useState(initialState);
+  const [classess, setclassess] = useState('');
   const firecracker = new Audio(firecrackerx);
   const turn = new Audio(turnx);
   const winxx = new Audio(winx);
   const reset = new Audio(resetx);
+  const cut = new Audio(cutx);
   // const Draw = new Audio(Drawx);
 
   const clickHandler = (i) => {
@@ -94,6 +100,46 @@ export default function App() {
         // console.log("gameState[a]",gameState[a]);
         //   return (gameState[a]);
         (gameState[a] === 'X' ? setXScore(XScore + 1) : setYScore(YScore + 1));
+        if(a===1 && b===4)
+        {
+          setclassess('line-VM');
+          cut.play();
+        }
+        if(a===0 && b===3)
+        {
+          setclassess('line-VL');
+          cut.play();
+        }
+        if(a===2 && b===5)
+        {
+          cut.play();
+          setclassess('line-VR');
+        }
+        if(a===3 && b===4)
+        {
+          cut.play();
+          setclassess('line-HM');
+        }
+        if(a===0 && b===1)
+        {
+          cut.play();
+          setclassess('line-HT');
+        }
+        if(a===6 && b===7)
+        {
+          cut.play();
+          setclassess('line-HB');
+        }
+        if(a===0 && b===4)
+        {
+          cut.play();
+          setclassess('line-C1');
+        }
+        if(a===2 && b===4)
+        {
+          cut.play();
+          setclassess('line-C2');
+        }
       }
     })
   }
@@ -115,7 +161,7 @@ export default function App() {
       autoplay: true,
       animationData: data,
     })
-  }, [pause])
+  }, [AnimShow])
 
   useEffect(() => {
     CheckWin();
@@ -137,6 +183,7 @@ export default function App() {
     console.log("gameState", gameState);
     setPause(false);
     setAnimShow(false);
+    setclassess('');
   }
   const clearScore=()=>{
     setXScore(0);
@@ -147,9 +194,13 @@ export default function App() {
   };
 
   return (
+    <>
+    {/* <Navbar/> */}
+    <NavBar2/>
     <div className='app-header'>
       <div className="score-board">
         <h1 style={{ margin: ' 0' }}>Score Board</h1>
+        <div ><hr /></div> 
         <div style={{
           display: 'flex',
           justifyContent: 'center',
@@ -195,6 +246,7 @@ export default function App() {
         </div>
       </div>
       }
+       <div className={classess.length>1?`${classess}`:'line'}><hr className='actual-line' /></div>
       <div >
 
         <div className="row jc-center">
@@ -221,7 +273,11 @@ export default function App() {
           {pause ? <PlayCircleIcon style={{ color: "white" }} /> : <PauseCircleIcon style={{ color: "white" }} />}
         </IconButton>
       </div>
+
+      <Footer></Footer>
+  
     </div>
+    </>
 
   )
 }
