@@ -17,9 +17,9 @@ export default function Footer(props) {
                 <div className="container" >
                     <center>
 
-                        <h5
+                        <h3
                         //   style={{color: props.mode==='light'?'black':'white'}}
-                        >Contact The Developer</h5>
+                        >Contact The Developer</h3>
 
                         <div className="icons">
                             <a

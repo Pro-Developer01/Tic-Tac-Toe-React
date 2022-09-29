@@ -5,10 +5,22 @@
     border-radius: 14px;
     width: 335px;
     height: 241px;
-    margin-top: 22px;
+    margin-top: 34px;
     box-shadow: 0px 0px 32px #ffffffa8;
 
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.app-header::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.app-header {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 .X-score-red
 {
     box-shadow: 0px 16px 17px red;
