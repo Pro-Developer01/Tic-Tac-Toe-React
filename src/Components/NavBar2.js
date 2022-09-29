@@ -179,7 +179,7 @@ const ResponsiveAppBar = () => {
           </Box>
 
           {/* //For desktop */}
-          <Grid3x3Icon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          {/* <Grid3x3Icon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
           <Typography
             variant="h5"
             noWrap
