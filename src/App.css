@@ -33,73 +33,73 @@
 .line-VM
 {
     width: 370px;
-    position: absolute;
+    position: relative;
     transform: rotate(90deg);
-    top: 606px;
+    top: 174px;
     display: block !important;
 }
 .line-VR
 {
     width: 370px;
-    position: absolute;
+    position: relative;
     transform: rotate(90deg);
-    top: 606px;
-    right: 374px;
+    top: 174px;
+    right: -115px;
     display: block !important;
 }
 .line-VL
 {
     width: 370px;
-    position: absolute;
+    position: relative;
     transform: rotate(90deg);
-    top: 606px;
-    right: 604px;
+    top: 174px;
+    right: 115px;
     display: block !important;
 }
 .line-HM
 {
     width: 370px;
-    position: absolute;
+    position: relative;
     transform: rotate(0deg);
-    top: 602px;
-    right: 495px;
+    top: 172px;
+    right: 6px;
     display: block !important;
     transition: transform 3s;
 }
 .line-HT
 {
     width: 370px;
-    position: absolute;
+    position: relative;
     transform: rotate(0deg);
-    top: 488px;
-    right: 495px;
+    top: 57px;
+    right: 6px;
     display: block !important;
 }
 .line-HB
 {
     width: 370px;
-    position: absolute;
+    position: relative;
     transform: rotate(0deg);
-    top: 718px;
-    right: 495px;
+    top: 287px;
+    right: 6px;
     display: block !important;
 }
 .line-C1
 {
     width: 370px;
-    position: absolute;
+    position: relative;
     transform: rotate(45deg);
-    top: 604px;
-    right: 490px;
+    top: 174px;
+    right: -2px;
     display: block !important;
 }
 .line-C2
 {
     width: 370px;
-    position: absolute;
+    position: relative;
     transform: rotate(-48deg);
-    top: 602px;
-    right: 495px;
+    top: 184px;
+    right: 10px;
     display: block !important;
 }
 
@@ -119,4 +119,36 @@
 @keyframes line {
     from {width: 30px;}
     to {width: 370px;}
+  }
+
+
+  /* //footerthings
+   */
+   
+.App-link {
+    color: #61dafb;
+  }
+  
+  .Footer
+  {
+    /* height: 10vh; */
+    /* position: absolute;
+    bottom: 0; */
+    width: 100vw;
+    padding: 20px;
+  }
+
+  .icons a{
+    padding: 0 8px;
+  }
+
+  @media screen and (max-width:780px ){
+    .lottie-1
+    {
+        top: 353px;
+    }
+    .lottie-2
+    {
+        top: 478px;
+    }
   }

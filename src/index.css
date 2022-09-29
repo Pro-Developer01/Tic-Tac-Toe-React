@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
 }
 
 code {
@@ -27,7 +28,7 @@ code {
 
 .heading-text {
   color: white;
-  font-size: 42px;
+  font-size: 40px;
   font-weight: bolder;
   text-align: center;
   margin: 50px;
@@ -65,18 +66,20 @@ code {
 
 .button{
   margin-top: 30px;
+  margin-bottom: 60px;
+
 }
 .lottie-1
 {
   position: absolute;
   right: 0;
-  top: 0;
+  top: 115px;
 }
 .lottie-2
 {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 115px;
 }
 
 @media screen and (max-width: 380px) {
@@ -86,4 +89,10 @@ code {
   left: 0;
   top: 166px;
 }
+}
+
+@media screen and (max-width:780px ){
+  .heading-text {
+    font-size: 34px;
+  }
 }
