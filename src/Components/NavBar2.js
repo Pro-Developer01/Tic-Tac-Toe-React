@@ -105,7 +105,7 @@ const ResponsiveAppBar = () => {
   // };
 
   return (
-    <AppBar position="static" style={{ borderRadius: "33px", height: "48px" }}>
+    <AppBar position="static" style={{ borderRadius: "33px", height: "48px", background: 'darkviolet'  }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters style={{ height: "46px ", minHeight: "0px" }}>
           <Grid3x3Icon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
