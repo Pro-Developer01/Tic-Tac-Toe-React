@@ -21,7 +21,7 @@ export default function Footer(props) {
                         //   style={{color: props.mode==='light'?'black':'white'}}
                         >Contact The Developer</h3>
 
-                        <div className="icons">
+                        <div className="icons" style={{width: '100%'}}>
                             <a
                                 href="https://api.whatsapp.com/send?phone=918948492799&text=Hello,%20I%20visited%20your%20text%20Utils%20website."
                                 target="_blank"
